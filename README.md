@@ -10,7 +10,7 @@
     
     1.2.2. [Bumping the Version](#bumping-the-version)
     
-    1.2.3. [Changing Workflow and/or Resources Completely](#changing-workflow-and/or-Resources-completely)
+    1.2.3. [Changing Workflow and/or Resources Completely](#changing-workflow-andor-Resources-completely)
     
 2. [Size of API](#size-of-api)
 
@@ -114,9 +114,9 @@
     
 11. [Same Resource Structure](#same-resource-structure)
 
-    11.1. [A/B, Alpha and Beta Testing](#a/b,-alpha-and-beta-testing)
+    11.1. [A/B, Alpha and Beta Testing](#ab-alpha-and-beta-testing)
     
-    11.1.1. [A/B Testing](#a/b-testing)
+    11.1.1. [A/B Testing](#ab-testing)
     
     11.1.2. [Feature Flags](#feature-flags)
     
