@@ -96,9 +96,11 @@
     
     8.6.1. [IDs as Strings](#ids-as-strings)
     
-    8.6.2. [Global identifiers](#global-identifiers)
+    8.6.2. [Enumeration-proof identifiers](#enumeration-proof-identifiers)
     
-    8.6.3. [No duplicate IDs](#no-duplicate-ids)
+    8.6.3. [Global identifiers](#global-identifiers)
+    
+    8.6.4. [No duplicate IDs](#no-duplicate-ids)
     
     8.7. [Binary Responses](#binary-responses)
     
@@ -437,9 +439,20 @@ We use string to represent any ID.
 
 **Why?** This gives much more possibilities - we can include server ID for some scaling solutions, we can generate UUID, we can include object’s type to give unique ID for any of resources returned from API (not only between same resources).
 
+### Enumeration-proof identifiers
+
+For data sensitive or private resources (eg. users, preferences, transfer, etc.) alpha-numeric string, such as UUID (or some other hash) should be used for resource identification instead of direct database ID. This applies for all types of requests, not just `GET`.
+
+**Why?**
+- Hash identifiers do not expose probable resource count, eg. `GET /users/1` vs. `GET /users/132`
+- Enumeration attacks become impractical, attacker can no longer increment value of resource id to probe API for resource existence
+- Hash identifiers should also be used in request body, because:
+    - enumeration attacks can be prevented for resource manipulation requests, eg. depending on endpoint configuration, response status of `POST /users {"id":"1"}` could be 403 or 404, revealing info about resource existence
+    - it's required to have single identifier for resource, [no duplicate IDs rule](#no-duplicate-ids)
+
 ### Global identifiers
 
-If object has global identifier which can be used instead of the local one, we always provide the global one.
+If object has a global identifier which can be used instead of the local one, we always provide the global one.
 
 For example, we use `user_id` (used globally in several systems) instead of `client_id` (used in single system) if possible, we also use account number instead of account ID, which has meaning only internally in the system.
 
