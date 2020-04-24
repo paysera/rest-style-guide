@@ -445,10 +445,8 @@ For data sensitive or private resources (eg. users, preferences, transfer, etc.)
 
 **Why?**
 - Hash identifiers do not expose probable resource count, eg. `GET /users/1` vs. `GET /users/132`
-- Access log data does not directly correlate to database info, eg. `GET /users/1` vs. `GET /users/2b32b25e-8610-11ea-bc55-0242ac130003`
-- Enumeration attacks become impractical, attacker can no longer increment values of resource id to probe API for resource existence
+- Enumeration attacks become impractical, attacker can no longer increment value of resource id to probe API for resource existence
 - Hash identifiers should also be used in request body, because:
-    - access log could be configured to persist request body data
     - enumeration attacks can be prevented for resource manipulation requests, eg. depending on endpoint configuration, response status of `POST /users {"id":"1"}` could be 403 or 404, revealing info about resource existence
     - it's required to have single identifier for resource, [no duplicate IDs rule](#no-duplicate-ids)
 
