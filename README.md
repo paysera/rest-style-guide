@@ -480,7 +480,7 @@ We give separate endpoints to complete different actions with resource.
 
 This allows to give separate parameters for each of the actions, also to see the available actions more clearly.
 
-We prefer this over modifying resource while changing it's status. All status changes should be handled by `DELETE` request and/or actions with the resource.
+We prefer this over modifying resource while changing it's status. All status changes should be handled by `PUT` request and/or actions with the resource.
 
 Fo example:
 
